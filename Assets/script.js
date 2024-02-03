@@ -187,6 +187,17 @@ passwordLength= Number.parseInt(passwordLength)
 
 
 
+function generatePassword(passwordOptions) {
+//   // variable if the password is empty
+  var {
+    passwordLength,
+    lowercasedChars,
+    uppercasedChars,
+    specialCharacters,
+    numericCharacters,
+  } = passwordOptions;
+  var password = "";
+  var characters = "";
 
  
 
@@ -207,7 +218,11 @@ var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharac
 generateButton.addEventListener("click", (evt) => {
   evt.preventDefault();
   console.log(evt);
-  passwordLength();
+  getRandomIndex();
 });
 
+// // Function to get random number from the number characters
 
+// Function getRandomNumber (length) {
+//     return Math.floor(math.random().length);
+// }
