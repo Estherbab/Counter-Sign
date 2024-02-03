@@ -107,8 +107,8 @@ console.log(arr[randonIndex])
 return arr[randonIndex]
 }
 
-var randomNumericChar =  getRandomIndex(numericCharacters);
-console.log(randomNumericChar);
+// var randomNumericChar =  getRandomIndex(numericCharacters);
+// console.log(randomNumericChar);
 
 
 
@@ -119,20 +119,43 @@ console.log(randomNumericChar);
       uppercasedChars[Math.floor(Math.random() * uppercasedChars.length)];
   }
 
+  // when the password is generated t will add a random value in the password, selected from the lower case character length
+  if (uppercasedChars) {
+    characters += uppercasedChars.join("");
+    password +=
+      lowercasedChars[Math.floor(Math.random() * lowercasedChars.length)];
+  }
+
+  // when the password is generated it will add a random value in the password, selected from the special character length
+  if (specialCharacters) {
+    characters += specialCharacters.join("");
+    password +=
+      specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+  }
+
+  // when the password is generated t will add a random value in the password, selected from the numeric character length
+  if (numericCharacters) {
+    characters += numericCharacters.join("");
+    password +=
+      numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+
+
+  }
+
 
 
 // Function to prompt user for password
 
-// if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
-//     console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
-//     window.alert("cannot build password without atleast 1 of the 4 options")
-//     return null
-// }
+if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
+    console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
+    window.alert("cannot build password without atleast 1 of the 4 options")
+    return null
+}
 
-// var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
+var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
 
-//     return result.join(" ")
-// }
+    return result.join(" ")
+
 
 generateButton.addEventListener("click", (evt) => {
   evt.preventDefault();
