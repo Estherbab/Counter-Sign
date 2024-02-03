@@ -111,23 +111,33 @@ var randomNumericChar =  getRandomIndex(numericCharacters);
 console.log(randomNumericChar);
 
 
-Function to prompt user for password
 
-if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
-    console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
-    window.alert("cannot build password without atleast 1 of the 4 options")
-    return null
-}
+  // a random value is being generated from the upper case character length, and from the 26 letters it will add a random value in the password
+  if (lowercasedChars) {
+    characters += lowercasedChars.join("");
+    password +=
+      uppercasedChars[Math.floor(Math.random() * uppercasedChars.length)];
+  }
 
-var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
 
-    return result.join(" ")
 
+// Function to prompt user for password
+
+// if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
+//     console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
+//     window.alert("cannot build password without atleast 1 of the 4 options")
+//     return null
+// }
+
+// var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
+
+//     return result.join(" ")
+// }
 
 generateButton.addEventListener("click", (evt) => {
   evt.preventDefault();
   console.log(evt);
-  passwordBox();
+  passwordLength();
 });
 
 
