@@ -111,7 +111,7 @@ var randomNumericChar =  getRandomIndex(numericCharacters);
 console.log(randomNumericChar);
 
 
-// Function to prompt user for password
+Function to prompt user for password
 
 if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
     console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
@@ -123,5 +123,11 @@ var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharac
 
     return result.join(" ")
 
+
+generateButton.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  console.log(evt);
+  passwordBox();
+});
 
 
