@@ -151,7 +151,17 @@ return arr[randonIndex]
 
 
     
+passwordLength= Number.parseInt(passwordLength)
 
+  var passwordOptions = {
+    passwordLength,
+    lowercasePrompt,
+    uppercasePrompt,
+    specialCharsPrompt,
+    numbersPrompt,
+  };
+  return passwordOptions;
+}
 
 
 
