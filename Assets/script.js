@@ -107,3 +107,6 @@ console.log(arr[randonIndex])
 return arr[randonIndex]
 }
 
+var randomNumericChar =  getRandomIndex(numericCharacters);
+console.log(randomNumericChar);
+
