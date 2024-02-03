@@ -110,7 +110,29 @@ return arr[randonIndex]
 // var randomNumericChar =  getRandomIndex(numericCharacters);
 // console.log(randomNumericChar);
 
+function buildPassword() {
+  console.log("building password...");
+  var passwordLength = window.prompt("How long would you like your password? (Must be between 8 and 128 characters)")
+  var lowercasePrompt = window.confirm(
+    "Would you like your password to have lowercase characters?"
+  );
+  var uppercasePrompt = window.confirm(
+    "Would you like your password to have uppercase characters?"
+  );
+  var numbersPrompt = window.confirm(
+    "Would you like your password to have number characters?"
+  );
+  var specialCharsPrompt = window.confirm(
+    "Would you like your password to have special characters?"
+  );
 
+ 
+ // If the user doesn't select any opyions and clicks no 
+    if (!lowercasePrompt && !uppercasePrompt && !numbersPrompt && !specialCharsPrompt) {
+        window.alert("Cannot build password with no options!")
+        return null 
+        
+    }
 
   // a random value is being generated from the upper case character length, and from the 26 letters it will add a random value in the password
   if (lowercasedChars) {
@@ -171,16 +193,16 @@ passwordLength= Number.parseInt(passwordLength)
 
 // Function to prompt user for password
 
-// if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
-//     console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
-//     window.alert("cannot build password without atleast 1 of the 4 options")
-//     return null
-// }
+if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
+    console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
+    window.alert("cannot build password without atleast 1 of the 4 options")
+    return null
+}
 
-// var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
+var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
 
-//     return result.join(" ")
-// }
+    return result.join(" ")
+}
 
 generateButton.addEventListener("click", (evt) => {
   evt.preventDefault();
