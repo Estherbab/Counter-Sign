@@ -110,3 +110,18 @@ return arr[randonIndex]
 var randomNumericChar =  getRandomIndex(numericCharacters);
 console.log(randomNumericChar);
 
+
+// Function to prompt user for password
+
+if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
+    console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
+    window.alert("cannot build password without atleast 1 of the 4 options")
+    return null
+}
+
+var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
+
+    return result.join(" ")
+
+
+
