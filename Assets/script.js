@@ -126,7 +126,7 @@ return arr[randonIndex]
       lowercasedChars[Math.floor(Math.random() * lowercasedChars.length)];
   }
 
-  // when the password is generated it will add a random value in the password, selected from the special character length
+  // when the password is generated t will add a random value in the password, selected from the special character length
   if (specialCharacters) {
     characters += specialCharacters.join("");
     password +=
@@ -139,23 +139,38 @@ return arr[randonIndex]
     password +=
       numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
 
+    // When 10 is greater than the length of the generated password, we will add any random character
+    while (length > password.length) {
+      // it will continue to add a random character unless the password length is 10
+      password +=
+        allCharacters[Math.floor(Math.random() * allCharacters.length)];
+    }
 
+    passwordBox.value = password; // the password will be displayed in the input box
   }
 
+
+    
+
+
+
+
+
+ 
 
 
 // Function to prompt user for password
 
-if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
-    console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
-    window.alert("cannot build password without atleast 1 of the 4 options")
-    return null
-}
+// if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
+//     console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
+//     window.alert("cannot build password without atleast 1 of the 4 options")
+//     return null
+// }
 
-var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
+// var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
 
-    return result.join(" ")
-
+//     return result.join(" ")
+// }
 
 generateButton.addEventListener("click", (evt) => {
   evt.preventDefault();
