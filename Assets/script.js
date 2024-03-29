@@ -105,11 +105,12 @@ function getRandomIndex(arr) {
   return Math.floor(Math.random() * arr.length);
 }
 
-
 var randomNumericChar =  getRandomIndex(numericCharacters);
 console.log(randomNumericChar);
 
+
 function buildPassword() {
+
   console.log("building password...");
   let password = "";
   let passwordLength = parseInt(prompt("How long would you like your password to be? (It Must be between 8 and 128 characters)"));
@@ -128,45 +129,27 @@ function buildPassword() {
 // when the password is generated t will add a random value in the password, selected from the special character length
   var specialCharsPrompt = confirm("Would you like your password to have special characters?");
 
- // If the user doesn't select any opyions and clicks no 
+ // If the user doesn't select any options and clicks no then an alert will pop up 
     if (!lowercasePrompt && !uppercasePrompt && !numbersPrompt && !specialCharsPrompt) {
         alert("Cannot build password with no options!")
         return null 
         
     }
-var characters = []
+
+    let allCharacters = [];
 
 
-  // a random value is being generated from the upper case character length, and from the 26 letters it will add a random value in the password
-  if (lowercasedChars) {
-    characters += lowercasedChars.join("");
-    password +=
-      uppercasedChars[Math.floor(Math.random() * uppercasedChars.length)];
-      console.log(password)
-  }
+    if (lowercasePrompt) allCharacters = allCharacters.concat(lowercasedChars);
+    if (uppercasePrompt) allCharacters = allCharacters.concat(uppercasedChars);
+    if (numbersPrompt) allCharacters = allCharacters.concat(numericCharacters);
+    if (specialCharsPrompt) allCharacters = allCharacters.concat(specialCharacters);
 
-  // when the password is generated t will add a random value in the password, selected from the lower case character length
-  if (uppercasedChars) {
-    characters += uppercasedChars.join("");
-    password +=
-      lowercasedChars[Math.floor(Math.random() * lowercasedChars.length)];
-      console.log(password)
-  }
+    for (let i = 0; i < passwordLength; i++) {
+      password += allCharacters[getRandomIndex(allCharacters)];
+    }
 
-  // when the password is generated t will add a random value in the password, selected from the special character length
-  if (specialCharacters) {
-    characters += specialCharacters.join("");
-    password +=
-      specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-      console.log(password)
-  }
-
-  // when the password is generated t will add a random value in the password, selected from the numeric character length
-  if (numericCharacters) {
-    characters += numericCharacters.join("");
-    password +=
-      numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-      console.log(password)
+  
+  
 
     // When 10 is greater than the length of the generated password, we will add any random character
     while (length > password.length) {
@@ -233,6 +216,8 @@ generateButton.addEventListener("click",
 // Function getRandomNumber (length) {
 //     return Math.floor(math.random().length);
 // }
+
+
 
 
 
