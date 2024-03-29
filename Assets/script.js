@@ -1,4 +1,4 @@
-// we need to have a password generator that consists of a combo of lower case, uppecase, numbers, and or special symbols
+// we need to have a password generator that consists of a combination of lower case, uppecase, numbers, and or special symbols
 // need to ask or prompt the user for these different options
 
 const generateButton = document.getElementById("generate");
@@ -95,6 +95,7 @@ var specialCharacters = [
 // Array of numbers to be included in password
 var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
+// This is to combine all character types into one array
 var allCharacters =
   lowercasedChars + uppercasedChars + specialCharacters + numericCharacters;
 console.log(allCharacters)
@@ -108,16 +109,19 @@ function getRandomIndex(arr) {
 var randomNumericChar =  getRandomIndex(numericCharacters);
 console.log(randomNumericChar);
 
-
+// Function to build the password
 function buildPassword() {
 
   console.log("building password...");
   let password = "";
+  // prompt the user for password length
   let passwordLength = parseInt(prompt("How long would you like your password to be? (It Must be between 8 and 128 characters)"));
 
+
+  // Code to check the password lenght input by the user if its less than 8 or more than 128
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Your Password length must be between 8 and 128 characters.");
-    console.log("Password length too short");
+    console.log("Password length too short or too long");
     return;
   }
 
@@ -130,7 +134,7 @@ function buildPassword() {
 // when the password is generated it will add a random value in the password, selected from the special character length
   var specialCharsPrompt = confirm("Would you like your password to have special characters?");
 
- // If the user doesn't select any options and clicks no then an alert will pop up 
+ // This is to check if at least one character type is selected, if the user doesn't select any options and clicks no then an alert will pop up 
     if (!lowercasePrompt && !uppercasePrompt && !numbersPrompt && !specialCharsPrompt) {
         alert("Cannot build password with no options!")
         return null 
@@ -139,72 +143,30 @@ function buildPassword() {
 
     let allCharacters = [];
 
-
+  // This is to join/concatenate all the selected character types
     if (lowercasePrompt) allCharacters = allCharacters.concat(lowercasedChars);
     if (uppercasePrompt) allCharacters = allCharacters.concat(uppercasedChars);
     if (numbersPrompt) allCharacters = allCharacters.concat(numericCharacters);
     if (specialCharsPrompt) allCharacters = allCharacters.concat(specialCharacters);
 
+//This for loop generates the password randomly from all the selected character types
     for (let i = 0; i < passwordLength; i++) {
       password += allCharacters[getRandomIndex(allCharacters)];
     }
 
-    passwordBox.textContent = password;   // The password textcontent will be displayed in the box
+// The password textcontent will be displayed in the box
+    passwordBox.textContent = password;   
     console.log(password)
   
   }
-  generateButton.addEventListener("click", buildPassword); // Once the user clicks on the generate password button, all the password building prompts will appear
+  // Event listener for the generate password button, once the user clicks the button all the password building prompts will appear
+  generateButton.addEventListener("click", buildPassword); 
 
     
-// passwordLength= Number.parseInt(passwordLength)
-
-//   var passwordOptions = {
-//     passwordLength,
-//     lowercasePrompt,
-//     uppercasePrompt,
-//     specialCharsPrompt,
-//     numbersPrompt,
-//   };
-//   return passwordOptions;
-// }
 
 
 
-function generatePassword(passwordOptions) {
-  // variable if the password is empty
-  var {
-    passwordLength,
-    lowercasedChars,
-    uppercasedChars,
-    specialCharacters,
-    numericCharacters,
-  } = passwordOptions;
-  var password = "";
-  var characters = "";
 
- 
-
-
-// Function to prompt user for password
-
-// if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
-//     console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
-//     window.alert("cannot build password without atleast 1 of the 4 options")
-    // return null
-// }
-
-// var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
-
-//     return result.join(" ")
-// }
-
-
-
-// // Function to get random number from the number characters
-
-// Function getRandomNumber (length) {
-//     return Math.floor(math.random().length);
-// }
 
 
 
