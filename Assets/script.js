@@ -148,19 +148,9 @@ function buildPassword() {
       password += allCharacters[getRandomIndex(allCharacters)];
     }
 
-  
-  
-
-    // When 10 is greater than the length of the generated password, we will add any random character
-    while (length > password.length) {
-      // it will continue to add a random character unless the password length is 10
-      password +=
-        allCharacters[Math.floor(Math.random() * allCharacters.length)];
-        console.log(password)
-    }
-
-    passwordBox.textContent = passwordOptions; // the password will be displayed in the input box
+    passwordBox.textContent = password;   // The password textcontent will be displayed in the box
     console.log(password)
+  
   }
 
 
@@ -226,5 +216,3 @@ generateButton.addEventListener("click",
 
 
 
-
-// 
