@@ -117,6 +117,7 @@ function buildPassword() {
 
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Your Password length must be between 8 and 128 characters.");
+    console.log("Password length too short");
     return;
   }
 
@@ -126,7 +127,7 @@ function buildPassword() {
   var uppercasePrompt = confirm("Would you like your password to have uppercase characters?");
 // when the password is generated it will add a random value in the password, selected from the numeric character length
   var numbersPrompt = confirm("Would you like your password to have numeric characters?");
-// when the password is generated t will add a random value in the password, selected from the special character length
+// when the password is generated it will add a random value in the password, selected from the special character length
   var specialCharsPrompt = confirm("Would you like your password to have special characters?");
 
  // If the user doesn't select any options and clicks no then an alert will pop up 
@@ -152,34 +153,34 @@ function buildPassword() {
     console.log(password)
   
   }
-
+  generateButton.addEventListener("click", buildPassword); // Once the user clicks on the generate password button, all the password building prompts will appear
 
     
-passwordLength= Number.parseInt(passwordLength)
+// passwordLength= Number.parseInt(passwordLength)
 
-  var passwordOptions = {
-    passwordLength,
-    lowercasePrompt,
-    uppercasePrompt,
-    specialCharsPrompt,
-    numbersPrompt,
-  };
-  return passwordOptions;
-}
-
-
-
-// function generatePassword(passwordOptions) {
-//   // variable if the password is empty
-//   var {
+//   var passwordOptions = {
 //     passwordLength,
-//     lowercasedChars,
-//     uppercasedChars,
-//     specialCharacters,
-//     numericCharacters,
-//   } = passwordOptions;
-//   var password = "";
-//   var characters = "";
+//     lowercasePrompt,
+//     uppercasePrompt,
+//     specialCharsPrompt,
+//     numbersPrompt,
+//   };
+//   return passwordOptions;
+// }
+
+
+
+function generatePassword(passwordOptions) {
+  // variable if the password is empty
+  var {
+    passwordLength,
+    lowercasedChars,
+    uppercasedChars,
+    specialCharacters,
+    numericCharacters,
+  } = passwordOptions;
+  var password = "";
+  var characters = "";
 
  
 
@@ -197,15 +198,15 @@ passwordLength= Number.parseInt(passwordLength)
 //     return result.join(" ")
 // }
 
-generateButton.addEventListener("click",
-  buildPassword
-);
+
 
 // // Function to get random number from the number characters
 
 // Function getRandomNumber (length) {
 //     return Math.floor(math.random().length);
 // }
+
+
 
 
 
