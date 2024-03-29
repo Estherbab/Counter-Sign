@@ -106,21 +106,28 @@ function getRandomIndex(arr) {
 }
 
 
-
 var randomNumericChar =  getRandomIndex(numericCharacters);
 console.log(randomNumericChar);
 
 function buildPassword() {
   console.log("building password...");
   let password = "";
-  let passwordLength = parseInt(prompt("How long would you like your password? (It Must be between 8 and 128 characters)"));
+  let passwordLength = parseInt(prompt("How long would you like your password to be? (It Must be between 8 and 128 characters)"));
 
   if (passwordLength < 8 || passwordLength > 128) {
-    alert("Password length must be between 8 and 128 characters.");
+    alert("Your Password length must be between 8 and 128 characters.");
     return;
   }
 
- 
+  // a random value is being generated from the lowercase character length, and from the 26 letters it will add a random value in the password
+  var lowercasePrompt = confirm("Would you like your password to have lowercase characters?");
+ // when the password is generated it will add a random value in the password, selected from the uppercase character length
+  var uppercasePrompt = confirm("Would you like your password to have uppercase characters?");
+// when the password is generated it will add a random value in the password, selected from the numeric character length
+  var numbersPrompt = confirm("Would you like your password to have numeric characters?");
+// when the password is generated t will add a random value in the password, selected from the special character length
+  var specialCharsPrompt = confirm("Would you like your password to have special characters?");
+
  // If the user doesn't select any opyions and clicks no 
     if (!lowercasePrompt && !uppercasePrompt && !numbersPrompt && !specialCharsPrompt) {
         alert("Cannot build password with no options!")
@@ -128,6 +135,7 @@ function buildPassword() {
         
     }
 var characters = []
+
 
   // a random value is being generated from the upper case character length, and from the 26 letters it will add a random value in the password
   if (lowercasedChars) {
