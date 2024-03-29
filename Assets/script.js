@@ -99,138 +99,139 @@ var allCharacters =
   lowercasedChars + uppercasedChars + specialCharacters + numericCharacters;
 console.log(allCharacters)
 
-// // Function for getting a random index of array
-function getRandomIndex(arr = []) {
-var randonIndex = Math.floor(Math.random() * arr.length);
-console.log(arr[randonIndex])
-    console.log(arr);
-return arr[randonIndex]
+
+function getRandomIndex(arr) {
+  console.log(arr);
+  return Math.floor(Math.random() * arr.length);
 }
 
-var randomNumericChar =  getRandomIndex(numericCharacters);
-console.log(randomNumericChar);
 
-function buildPassword() {
-  console.log("building password...");
-  var passwordLength = prompt("How long would you like your password? (Must be between 8 and 128 characters)")
-  var lowercasePrompt = confirm(
-    "Would you like your password to have lowercase characters?"
-  );
-  var uppercasePrompt = confirm(
-    "Would you like your password to have uppercase characters?"
-  );
-  var numbersPrompt = confirm(
-    "Would you like your password to have number characters?"
-  );
-  var specialCharsPrompt = confirm(
-    "Would you like your password to have special characters?"
-  );
+
+// var randomNumericChar =  getRandomIndex(numericCharacters);
+// console.log(randomNumericChar);
+
+// function buildPassword() {
+//   console.log("building password...");
+//   var passwordLength = prompt("How long would you like your password? (Must be between 8 and 128 characters)")
+//   var lowercasePrompt = confirm(
+//     "Would you like your password to have lowercase characters?"
+//   );
+//   var uppercasePrompt = confirm(
+//     "Would you like your password to have uppercase characters?"
+//   );
+//   var numbersPrompt = confirm(
+//     "Would you like your password to have number characters?"
+//   );
+//   var specialCharsPrompt = confirm(
+//     "Would you like your password to have special characters?"
+//   );
 
  
- // If the user doesn't select any opyions and clicks no 
-    if (!lowercasePrompt && !uppercasePrompt && !numbersPrompt && !specialCharsPrompt) {
-        alert("Cannot build password with no options!")
-        return null 
+//  // If the user doesn't select any opyions and clicks no 
+//     if (!lowercasePrompt && !uppercasePrompt && !numbersPrompt && !specialCharsPrompt) {
+//         alert("Cannot build password with no options!")
+//         return null 
         
-    }
-var characters = []
+//     }
+// var characters = []
 
-  // a random value is being generated from the upper case character length, and from the 26 letters it will add a random value in the password
-  if (lowercasedChars) {
-    characters += lowercasedChars.join("");
-    password +=
-      uppercasedChars[Math.floor(Math.random() * uppercasedChars.length)];
-      console.log(password)
-  }
+//   // a random value is being generated from the upper case character length, and from the 26 letters it will add a random value in the password
+//   if (lowercasedChars) {
+//     characters += lowercasedChars.join("");
+//     password +=
+//       uppercasedChars[Math.floor(Math.random() * uppercasedChars.length)];
+//       console.log(password)
+//   }
 
-  // when the password is generated t will add a random value in the password, selected from the lower case character length
-  if (uppercasedChars) {
-    characters += uppercasedChars.join("");
-    password +=
-      lowercasedChars[Math.floor(Math.random() * lowercasedChars.length)];
-      console.log(password)
-  }
+//   // when the password is generated t will add a random value in the password, selected from the lower case character length
+//   if (uppercasedChars) {
+//     characters += uppercasedChars.join("");
+//     password +=
+//       lowercasedChars[Math.floor(Math.random() * lowercasedChars.length)];
+//       console.log(password)
+//   }
 
-  // when the password is generated t will add a random value in the password, selected from the special character length
-  if (specialCharacters) {
-    characters += specialCharacters.join("");
-    password +=
-      specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-      console.log(password)
-  }
+//   // when the password is generated t will add a random value in the password, selected from the special character length
+//   if (specialCharacters) {
+//     characters += specialCharacters.join("");
+//     password +=
+//       specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+//       console.log(password)
+//   }
 
-  // when the password is generated t will add a random value in the password, selected from the numeric character length
-  if (numericCharacters) {
-    characters += numericCharacters.join("");
-    password +=
-      numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-      console.log(password)
+//   // when the password is generated t will add a random value in the password, selected from the numeric character length
+//   if (numericCharacters) {
+//     characters += numericCharacters.join("");
+//     password +=
+//       numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+//       console.log(password)
 
-    // When 10 is greater than the length of the generated password, we will add any random character
-    while (length > password.length) {
-      // it will continue to add a random character unless the password length is 10
-      password +=
-        allCharacters[Math.floor(Math.random() * allCharacters.length)];
-        console.log(password)
-    }
+//     // When 10 is greater than the length of the generated password, we will add any random character
+//     while (length > password.length) {
+//       // it will continue to add a random character unless the password length is 10
+//       password +=
+//         allCharacters[Math.floor(Math.random() * allCharacters.length)];
+//         console.log(password)
+//     }
 
-    passwordBox.textContent = passwordOptions; // the password will be displayed in the input box
-    console.log(password)
-  }
+//     passwordBox.textContent = passwordOptions; // the password will be displayed in the input box
+//     console.log(password)
+//   }
 
 
     
-passwordLength= Number.parseInt(passwordLength)
+// passwordLength= Number.parseInt(passwordLength)
 
-  var passwordOptions = {
-    passwordLength,
-    lowercasePrompt,
-    uppercasePrompt,
-    specialCharsPrompt,
-    numbersPrompt,
-  };
-  return passwordOptions;
-}
-
-
-
-// function generatePassword(passwordOptions) {
-//   // variable if the password is empty
-//   var {
+//   var passwordOptions = {
 //     passwordLength,
-//     lowercasedChars,
-//     uppercasedChars,
-//     specialCharacters,
-//     numericCharacters,
-//   } = passwordOptions;
-//   var password = "";
-//   var characters = "";
+//     lowercasePrompt,
+//     uppercasePrompt,
+//     specialCharsPrompt,
+//     numbersPrompt,
+//   };
+//   return passwordOptions;
+// }
+
+
+
+// // function generatePassword(passwordOptions) {
+// //   // variable if the password is empty
+// //   var {
+// //     passwordLength,
+// //     lowercasedChars,
+// //     uppercasedChars,
+// //     specialCharacters,
+// //     numericCharacters,
+// //   } = passwordOptions;
+// //   var password = "";
+// //   var characters = "";
 
  
 
 
-// Function to prompt user for password
+// // Function to prompt user for password
 
-// if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
-//     console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
-//     window.alert("cannot build password without atleast 1 of the 4 options")
-    // return null
-// }
+// // if (!lowercasePrompt && !uppercasecasePrompt && !numbersPrompt && !specialCharsPrompt) {
+// //     console.log(lowercasePrompt, uppercasecasePrompt, numbersPrompt, specialCharsPrompt)
+// //     window.alert("cannot build password without atleast 1 of the 4 options")
+//     // return null
+// // }
 
-// var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
+// // var result = [lowercasedChars, uppercasedChars, specialCharacters, numericCharacters]
 
-//     return result.join(" ")
-// }
+// //     return result.join(" ")
+// // }
 
-generateButton.addEventListener("click",
-  buildPassword
-);
+// generateButton.addEventListener("click",
+//   buildPassword
+// );
 
 // // Function to get random number from the number characters
 
 // Function getRandomNumber (length) {
 //     return Math.floor(math.random().length);
 // }
+
 
 
 
